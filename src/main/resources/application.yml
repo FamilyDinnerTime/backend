@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: FamilyDinnerTime
+  
+  # Database Configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5402/dinner
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  
+  # JOOQ Configuration
+  jooq:
+    sql-dialect: postgres
+
+# JWT Configuration
+app:
+  jwt-secret: your-super-secret-jwt-key-that-should-be-at-least-256-bits-long-for-security
+  jwt-expiration-milliseconds: 86400000
+
+# Server Configuration
+server:
+  port: 8080
+
+# Documentation
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+# Logging
+logging:
+  level:
+    ru.kreslavski.family.dinnertime: DEBUG
+    org.springframework.security: DEBUG

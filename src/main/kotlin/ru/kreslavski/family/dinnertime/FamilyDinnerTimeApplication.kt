@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class FamilyDinnerTimeApplication
 
 fun main(args: Array<String>) {
-	runApplication<FamilyDinnerTimeApplication>(*args)
+    runApplication<FamilyDinnerTimeApplication>(*args)
 }

@@ -38,3 +38,6 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+### JOOQ JAVA CLASSES ###
+src/main/java/**/jooq/*
