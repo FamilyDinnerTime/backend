@@ -31,6 +31,9 @@ jobs:
       - name: Lint Kotlin
         run: ./gradlew lintKotlin
 
+      - name: Generate jOOQ classes
+        run: ./gradlew generateJavaJooq
+
       - name: Build (no tests)
         run: ./gradlew build -x test
 
