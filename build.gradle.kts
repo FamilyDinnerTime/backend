@@ -49,7 +49,8 @@ jooq {
 							listOf(
 								SchemaMappingType().withInputSchema("dinner"),
 								SchemaMappingType().withInputSchema("dictionaries"),
-								SchemaMappingType().withInputSchema("auth")
+								SchemaMappingType().withInputSchema("auth"),
+								SchemaMappingType().withInputSchema("social"),
 							)
 						)
 						includes = ".*"

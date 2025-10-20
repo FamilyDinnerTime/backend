@@ -41,6 +41,36 @@ class GlobalExceptionHandler {
         return ResponseEntity(ErrorResponse(ex.message ?: "Unauthorized access"), HttpStatus.FORBIDDEN)
     }
 
+    @ExceptionHandler(UserGroupNotFoundException::class)
+    fun handleUserGroupNotFoundException(ex: UserGroupNotFoundException): ResponseEntity<ErrorResponse> {
+        return ResponseEntity(ErrorResponse(ex.message ?: "User group not found"), HttpStatus.NOT_FOUND)
+    }
+
+    @ExceptionHandler(MenuVotingNotFoundException::class)
+    fun handleMenuVotingNotFoundException(ex: MenuVotingNotFoundException): ResponseEntity<ErrorResponse> {
+        return ResponseEntity(ErrorResponse(ex.message ?: "Menu voting not found"), HttpStatus.NOT_FOUND)
+    }
+
+    @ExceptionHandler(VotingOptionNotFoundException::class)
+    fun handleVotingOptionNotFoundException(ex: VotingOptionNotFoundException): ResponseEntity<ErrorResponse> {
+        return ResponseEntity(ErrorResponse(ex.message ?: "Voting option not found"), HttpStatus.NOT_FOUND)
+    }
+
+    @ExceptionHandler(UserAlreadyInGroupException::class)
+    fun handleUserAlreadyInGroupException(ex: UserAlreadyInGroupException): ResponseEntity<ErrorResponse> {
+        return ResponseEntity(ErrorResponse(ex.message ?: "User already in group"), HttpStatus.CONFLICT)
+    }
+
+    @ExceptionHandler(UserNotInGroupException::class)
+    fun handleUserNotInGroupException(ex: UserNotInGroupException): ResponseEntity<ErrorResponse> {
+        return ResponseEntity(ErrorResponse(ex.message ?: "User not in group"), HttpStatus.BAD_REQUEST)
+    }
+
+    @ExceptionHandler(DishAlreadyInVotingException::class)
+    fun handleDishAlreadyInVotingException(ex: DishAlreadyInVotingException): ResponseEntity<ErrorResponse> {
+        return ResponseEntity(ErrorResponse(ex.message ?: "Dish already in voting"), HttpStatus.CONFLICT)
+    }
+
     @ExceptionHandler(BadCredentialsException::class)
     fun handleBadCredentialsException(ex: BadCredentialsException): ResponseEntity<ErrorResponse> {
         return ResponseEntity(ErrorResponse("Invalid username or password"), HttpStatus.UNAUTHORIZED)

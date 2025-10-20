@@ -24,9 +24,8 @@ cd FamilyDinnerTime
 
 ### 2. Database Setup (Recommended: Docker)
 
-Use the provided `docker-compose.yml` in the `dinner-bd` directory to start PostgreSQL and run migrations:
+Use the provided `docker-compose.yml` in the [dinner-bd](https://github.com/FamilyDinnerTime/dinner-bd) repository to start PostgreSQL and run migrations:
 ```sh
-cd ../dinner-bd
 # Start DB and run migrations
 # (requires Docker Compose)
 docker-compose up
