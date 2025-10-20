@@ -29,7 +29,7 @@ class AuthController(private val authService: AuthService) {
     fun login(
         @Valid
         @RequestBody
-        loginRequest: LoginRequest
+        loginRequest: LoginRequest,
     ): ResponseEntity<AuthResponse> {
         val response = authService.login(loginRequest)
         return ResponseEntity.ok(response)
@@ -46,7 +46,7 @@ class AuthController(private val authService: AuthService) {
     fun register(
         @Valid
         @RequestBody
-        registerRequest: RegisterRequest
+        registerRequest: RegisterRequest,
     ): ResponseEntity<AuthResponse> {
         val response = authService.register(registerRequest)
         return ResponseEntity.ok(response)
