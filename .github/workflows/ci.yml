@@ -26,19 +26,15 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-        working-directory: ./FamilyDinnerTime
+        run: chmod +x ./gradlew
 
       - name: Lint Kotlin
         run: ./gradlew lintKotlin
-        working-directory: ./FamilyDinnerTime
 
       - name: Build (no tests)
         run: ./gradlew build -x test
-        working-directory: ./FamilyDinnerTime
 
       - name: Test
         run: ./gradlew test
-        working-directory: ./FamilyDinnerTime
 
 
