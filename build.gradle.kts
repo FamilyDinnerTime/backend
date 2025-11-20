@@ -1,3 +1,4 @@
+import org.jmailen.gradle.kotlinter.tasks.FormatTask
 import org.jmailen.gradle.kotlinter.tasks.LintTask
 import org.jooq.meta.jaxb.SchemaMappingType
 
@@ -143,8 +144,10 @@ kotlinter {
 	disabledRules = emptyArray()
 }
 
-
 tasks.getByName<LintTask>("lintKotlinMain") {
-	exclude { it.file.startsWith(buildDir) }
+	exclude { it.file.startsWith(layout.buildDirectory.toString()) }
 }
 
+tasks.getByName<FormatTask>("formatKotlinMain") {
+	exclude { it.file.startsWith(layout.buildDirectory.toString()) }
+}
