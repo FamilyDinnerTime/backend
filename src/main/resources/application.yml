@@ -33,8 +33,9 @@ springdoc:
 # Logging
 logging:
   level:
-    root: DEBUG
-    org.springframework: DEBUG
-    org.springdoc: DEBUG
-    ru.kreslavski.family.dinnertime: DEBUG
-    org.springframework.security: DEBUG
+#    root: DEBUG
+#    org.springframework: DEBUG
+#    org.springdoc: DEBUG
+#    ru.kreslavski.family.dinnertime: DEBUG
+#    org.springframework.security: DEBUG
+    org.jooq: DEBUG
