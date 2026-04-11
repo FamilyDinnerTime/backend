@@ -22,13 +22,12 @@ WORKDIR /workspace
 
 COPY --chown=gradle:gradle . .
 
-RUN gradle generateJavaJooq bootJar --no-daemon -x test \
-    && JAR=$(ls build/libs/*.jar | grep -v 'plain.jar' | head -n 1) \
-    && cp "$JAR" /tmp/application.jar
+RUN gradle generateJavaJooq --no-daemon
 
-RUN gradle bootJar --no-daemon -x test \
-	&& JAR=$(ls build/libs/*.jar | grep -v 'plain.jar' | head -n 1) \
-	&& cp "$JAR" /tmp/application.jar
+RUN gradle compileKotlin --no-daemon && \
+    gradle bootJar --no-daemon -x test && \
+    JAR=$(ls build/libs/*.jar | grep -v 'plain.jar' | head -n 1) && \
+    cp "$JAR" /tmp/application.jar
 
 FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
@@ -42,3 +41,4 @@ USER app
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+
