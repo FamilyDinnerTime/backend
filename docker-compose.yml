@@ -1,18 +1,16 @@
-version: '3.8'
+name: family-dinner
 
 services:
-  backend:
+  api:
     build: .
-    container_name: family-dinner-backend
+    image: family-dinner-time:local
+    container_name: family-dinner-api
     ports:
-      - "8080:8080"
+      - "${API_PORT:-8080}:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/dinner
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
-    networks:
-      - dinner-network
-
-networks:
-  dinner-network:
-    external: true
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL:-jdbc:postgresql://host.docker.internal:5402/dinner}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME:-postgres}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD:-postgres}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped

@@ -3,6 +3,9 @@
 # Build:
 #   docker build -t family-dinner-time .
 #
+# Or from this directory:
+#   docker compose up -d
+#
 # Run (Postgres must be reachable; default application.yml uses localhost:5432).
 # When the API runs in Docker and Postgres is on the host (published on 5432), use:
 #   docker run --rm -p 8080:8080 \
