@@ -22,6 +22,10 @@ WORKDIR /workspace
 
 COPY --chown=gradle:gradle . .
 
+RUN gradle generateJooq bootJar --no-daemon -x test \
+    && JAR=$(ls build/libs/*.jar | grep -v 'plain.jar' | head -n 1) \
+    && cp "$JAR" /tmp/application.jar
+
 RUN gradle bootJar --no-daemon -x test \
 	&& JAR=$(ls build/libs/*.jar | grep -v 'plain.jar' | head -n 1) \
 	&& cp "$JAR" /tmp/application.jar
